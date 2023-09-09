@@ -11,17 +11,21 @@ struct ContentView: View {
     @State var showHide = false
     var body: some View {
         VStack(alignment:.leading){
-                Button(action: {
-                    showHide.toggle()
-                }) {
-                    Image("menu")
-                }
+            Button(action: {
+                showHide.toggle()
+            }) {
+                Image("menu")
+            }
             VStack{
                 showHide ? AnyView(SubMenu(clicked: "")) : AnyView(EmptyView())
             }.padding(1.0)
-        }.frame(maxWidth: .infinity,
-               maxHeight: .infinity,
-               alignment: .topLeading)
+            .frame(maxWidth: UIScreen.main.bounds.width ,
+                    maxHeight: UIScreen.main.bounds.height,
+                    alignment: .topLeading)
+        }.frame(maxWidth: UIScreen.main.bounds.width,
+                maxHeight: UIScreen.main.bounds.height,
+                alignment: .topLeading)
+       
         
     }
 }

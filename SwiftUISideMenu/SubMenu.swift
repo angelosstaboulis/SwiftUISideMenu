@@ -13,15 +13,19 @@ struct SubMenu: View {
     var body: some View {
             VStack{
                 List($items,id:\.self){ item in
-                    Text(item.wrappedValue).padding(30.0)
+                    Text(item.wrappedValue).frame(width:205,height:55,alignment:.leading)
+                        .padding(-15)
+                        .font(.system(size: 12.7))
                         .onTapGesture {
                             clicked = item.wrappedValue
                         }
                         .listRowBackground(clicked == item.wrappedValue ? Color.gray : Color.clear)
                 }
             }.edgesIgnoringSafeArea(.top)
-           
-            
+            .padding(-15)
+            .frame(maxWidth:UIScreen.main.bounds.width/1.7,
+                    maxHeight: UIScreen.main.bounds.height,
+                    alignment: .topLeading)
            
     }
 }
